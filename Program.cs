@@ -17,6 +17,9 @@ namespace cli_Challenge
         typeof(Capital),
        
         typeof(Add),
+        typeof(Subtract),
+        typeof(Multiply),
+        typeof(Divide),
       
         typeof(Palindrome),
       
@@ -76,19 +79,68 @@ namespace cli_Challenge
         class Add
         {
             [Argument(0)]
-            public string number { get; set; }
+            public int[] number { get; set; }
 
             public void OnExecute(CommandLineApplication app)
             {
-                double sum =0;
+                int result =0;
 
-                String[] n = number.Split('_');
-                for (int i = 0; i < n.Length; i++)
+                for (int i = 0; i < number.Length; i++)
                 {
-                    int num = Convert.ToInt32(n[i]);
-                    sum += num;
+                    result += number[i];
                 }
-                Console.WriteLine(sum);
+                Console.WriteLine(result);
+            }
+        }
+        [Command(Description = "Command to subtract", Name = "subtract")]
+        class Subtract
+        {
+            [Argument(0)]
+            public int[] number { get; set; }
+
+            public void OnExecute(CommandLineApplication app)
+            {
+                int result =0;
+
+                for (int i = 0; i < number.Length; i++)
+                {
+                    result -= number[i];
+                }
+                Console.WriteLine(result);
+            }
+        }
+        [Command(Description = "Command to multiply", Name = "multiply")]
+        class Multiply
+        {
+            [Argument(0)]
+            public int[] number { get; set; }
+
+            public void OnExecute(CommandLineApplication app)
+            {
+                int result =0;
+
+                for (int i=1; i < number.Length; i++)
+                {
+                    result *= number[i];
+                }
+                Console.WriteLine(result);
+            }
+        }
+        [Command(Description = "Command to divide", Name = "divide")]
+        class Divide
+        {
+            [Argument(0)]
+            public int[] number { get; set; }
+
+            public void OnExecute(CommandLineApplication app)
+            {
+                int result =0;
+
+                for (int i=1; i < number.Length; i++)
+                {
+                    result /= number[i];
+                }
+                Console.WriteLine(result);
             }
         }
 
@@ -140,27 +192,27 @@ namespace cli_Challenge
             }
         }
 
-        numberFive
-        [Command(Description = "Command to random string", Name = "random")]
-        class Random
-        {
-            [Argument(0)]
-            public string text { get; set; }
+        // numberFive
+        // [Command(Description = "Command to random string", Name = "random")]
+        // class Random
+        // {
+        //     [Argument(0)]
+        //     public string text { get; set; }
 
-            public void OnExecute(CommandLineApplication app)
-            {
-                int n = 32;
-                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-                var ran = new char[n];
-                Random r = new Random();
+        //     public void OnExecute(CommandLineApplication app)
+        //     {
+        //         int n = 32;
+        //         var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        //         var ran = new char[n];
+        //         Random r = new Random();
 
-                for (int i=0; i<ran.Length; i++){
-                    ran[i] = chars[r.Next];
-                }
+        //         for (int i=0; i<ran.Length; i++){
+        //             ran[i] = chars[r.Next];
+        //         }
 
-                var result = new String(ran);
-            }
-        }
+        //         var result = new String(ran);
+        //     }
+        // }
 
         //numberSix
         [Command(Description = "Command to ip address", Name = "ip")]
