@@ -29,10 +29,10 @@ namespace cli_Challenge
        
         typeof(IpAddress),
         
-        typeof(IpExternal)
+        typeof(IpExternal),
         //no8
         //no9
-        //no10
+        typeof(Infinite)
     )]
     class Program
     {
@@ -83,9 +83,17 @@ namespace cli_Challenge
 
             public void OnExecute(CommandLineApplication app)
             {
-                int result =0;
+                int result;
 
-                for (int i = 0; i < number.Length; i++)
+                var nums = new List<int>();
+                foreach (var a in number)
+                {
+                    var num = Convert.ToInt32(a);
+                    nums.Add(num);
+                }
+
+                result = nums[0];
+                for (int i = 1; i < nums.Count(); i++)
                 {
                     result += number[i];
                 }
@@ -100,9 +108,17 @@ namespace cli_Challenge
 
             public void OnExecute(CommandLineApplication app)
             {
-                int result =0;
+                int result;
 
-                for (int i = 0; i < number.Length; i++)
+                var nums = new List<int>();
+                foreach (var a in number)
+                {
+                    var num = Convert.ToInt32(a);
+                    nums.Add(num);
+                }
+
+                result = nums[0];
+                for (int i = 1; i < nums.Count(); i++)
                 {
                     result -= number[i];
                 }
@@ -117,9 +133,17 @@ namespace cli_Challenge
 
             public void OnExecute(CommandLineApplication app)
             {
-                int result =0;
+                int result;
 
-                for (int i=1; i < number.Length; i++)
+                var nums = new List<int>();
+                foreach (var a in number)
+                {
+                    var num = Convert.ToInt32(a);
+                    nums.Add(num);
+                }
+
+                result = nums[0];
+                for (int i = 1; i < nums.Count(); i++)
                 {
                     result *= number[i];
                 }
@@ -134,9 +158,17 @@ namespace cli_Challenge
 
             public void OnExecute(CommandLineApplication app)
             {
-                int result =0;
+                int result;
 
-                for (int i=1; i < number.Length; i++)
+                var nums = new List<int>();
+                foreach (var a in number)
+                {
+                    var num = Convert.ToInt32(a);
+                    nums.Add(num);
+                }
+
+                result = nums[0];
+                for (int i = 1; i < nums.Count(); i++)
                 {
                     result /= number[i];
                 }
@@ -242,7 +274,30 @@ namespace cli_Challenge
             }
         }
 
-
-
+        //numberTen
+        [Command(Description = "command to infinite inputs", Name="sum")]
+        class Infinite
+        {
+            public void OnExecute(CommandLineApplication app)
+            {
+                long sum = 0;
+                string a = "";
+                while (a != null)
+                {
+                    Console.Write("Insert number : ");
+                    a = Console.ReadLine();
+                    if (a == "")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        long b = Convert.ToInt32(a);
+                        sum += b;
+                    }
+                }
+                Console.WriteLine(sum);
+            }
+        }
     }
 }
