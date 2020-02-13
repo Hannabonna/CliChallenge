@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils;
 using System.Globalization;
@@ -9,20 +11,21 @@ namespace cli_Challenge
 {
     [HelpOption("--hlp")]
     [Subcommand(
-        //no1
+  
         typeof(UpperCase),
         typeof(LowerCase),
         typeof(Capital),
-        //no2
-        //no3
+       
+        typeof(Add),
+      
         typeof(Palindrome),
-        //no4
+      
         typeof(Obfuscator),
-        //no5
-        typeof(Random),
-        //no6
+        
+        //typeof(Random),
+       
         typeof(IpAddress),
-        //no7
+        
         typeof(IpExternal)
         //no8
         //no9
@@ -35,6 +38,7 @@ namespace cli_Challenge
             return CommandLineApplication.Execute<Program>(args);
         }
 
+        //numberOne
         [Command(Description = "Command to uppercase string", Name = "uppercase")]
         class UpperCase
         {
@@ -55,7 +59,6 @@ namespace cli_Challenge
                 Console.WriteLine($"{text.ToLower()}");
             }
         }
-
         [Command(Description = "Command to capitalize string", Name = "capitalize")]
         class Capital
         {
@@ -68,6 +71,28 @@ namespace cli_Challenge
             }
         }
 
+        //numberTwo
+        [Command(Description = "Command to add", Name = "add")]
+        class Add
+        {
+            [Argument(0)]
+            public string number { get; set; }
+
+            public void OnExecute(CommandLineApplication app)
+            {
+                double sum =0;
+
+                String[] n = number.Split('_');
+                for (int i = 0; i < n.Length; i++)
+                {
+                    int num = Convert.ToInt32(n[i]);
+                    sum += num;
+                }
+                Console.WriteLine(sum);
+            }
+        }
+
+        //numberThree
         [Command(Description = "Command to palindrome", Name = "palindrome")]
         class Palindrome
         {
@@ -92,6 +117,7 @@ namespace cli_Challenge
             }
         }
 
+        //numberFour
         [Command(Description = "Command to obfuscator", Name = "obfuscator")]
         class Obfuscator
         {
@@ -114,6 +140,7 @@ namespace cli_Challenge
             }
         }
 
+        numberFive
         [Command(Description = "Command to random string", Name = "random")]
         class Random
         {
@@ -135,6 +162,7 @@ namespace cli_Challenge
             }
         }
 
+        //numberSix
         [Command(Description = "Command to ip address", Name = "ip")]
         class IpAddress
         {
@@ -147,17 +175,18 @@ namespace cli_Challenge
             }
         }
 
+        //numberSeven
         [Command(Description = "Command to ip external", Name = "ip-external")]
         class IpExternal
         {
             public void OnExecute(CommandLineApplication app)
             {
-                if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+                if (!NetworkInterface.GetIsNetworkAvailable())
                 {
                     Console.WriteLine("null");
                 }
                 IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-                Console.WriteLine(host.AddressList.FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)); 
+                Console.WriteLine(host.AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork)); 
             }
         }
 
