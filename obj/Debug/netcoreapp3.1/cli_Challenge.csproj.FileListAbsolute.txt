@@ -1,0 +1,13 @@
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.csprojAssemblyReference.cache
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.AssemblyInfoInputs.cache
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.AssemblyInfo.cs
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge.deps.json
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge.runtimeconfig.json
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge.runtimeconfig.dev.json
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge.dll
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/cli_Challenge.pdb
+/Users/gigaming/Downloads/cli_Challenge/bin/Debug/netcoreapp3.1/McMaster.Extensions.CommandLineUtils.dll
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.csproj.CopyComplete
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.dll
+/Users/gigaming/Downloads/cli_Challenge/obj/Debug/netcoreapp3.1/cli_Challenge.pdb
